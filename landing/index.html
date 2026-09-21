@@ -115,6 +115,61 @@ body::before{content:"";position:fixed;inset:-10%;pointer-events:none;z-index:0;
 
 ::selection{background:rgba(168,85,247,.45);color:#fff}
 
+
+/* ---------- escritorio ----------
+   En mobile la pagina es una columna angosta y esta bien. En un monitor esa
+   misma columna se ve como una tira perdida en el medio: ocupaba el 27% del
+   ancho y dejaba una banda muerta abajo. Aca se centra de verdad y crece,
+   pero escalonado: una laptop tiene menos alto util que un monitor grande,
+   asi que si crece igual en las dos, en la laptop aparece scroll. */
+@media (min-width:860px){
+  body{display:grid;place-items:center;padding:28px 0}
+  .wrap{max-width:600px;padding:0 24px}
+  .logo-wrap{max-width:380px}
+  .tag{font-size:11.5px;margin:8px auto 20px;padding:6px 16px}
+  .offer .l1{font-size:25px;max-width:none}
+  .offer .l1.ancho{max-width:none}
+  .pct{font-size:118px;margin:6px 0 6px}
+  .expl{max-width:400px;font-size:15.5px;padding:14px 20px;margin:18px auto 20px}
+  .cta{max-width:430px;margin:0 auto;padding:17px 20px}
+  .cta b{font-size:20px}
+  .chips{max-width:430px;margin:18px auto 0;gap:11px}
+  .chip{padding:14px 8px}
+  .chip b{font-size:15.5px}
+  .auto{font-size:14px;margin-top:20px}
+  /* en un monitor el boton nunca se va de pantalla: la barra fija solo estorba */
+  .bar{display:none}
+}
+/* pantallas anchas pero bajas (1024x768 y laptops viejas): si no achicamos
+   aca, la pagina entra en scroll justo donde no deberia */
+@media (min-width:860px) and (max-height:820px){
+  body{padding:18px 0}
+  .logo-wrap{max-width:330px}
+  .tag{margin:6px auto 16px}
+  .offer .l1{font-size:23px}
+  .pct{font-size:100px;margin:4px 0 4px}
+  .expl{margin:15px auto 17px;padding:12px 18px;font-size:15px}
+  .cta{padding:15px 20px}
+  .chips{margin:15px auto 0}
+  .chip{padding:12px 8px}
+  .auto{margin-top:17px}
+}
+
+/* monitores con alto de sobra: recien ahi agrandamos de verdad */
+@media (min-width:860px) and (min-height:960px){
+  .wrap{max-width:660px}
+  .logo-wrap{max-width:440px}
+  .offer .l1{font-size:30px}
+  .pct{font-size:150px;margin:10px 0 12px}
+  .expl{max-width:420px;font-size:16.5px;margin:24px auto 26px}
+  .cta{max-width:460px;padding:19px 20px}
+  .cta b{font-size:21px}
+  .chips{max-width:460px;margin:22px auto 0;gap:12px}
+  .chip{padding:16px 8px}
+  .chip b{font-size:16px}
+  .auto{font-size:14.5px;margin-top:26px}
+}
+
 @media (prefers-reduced-motion:reduce){.cta,body::before,.bar{animation:none;transition:none}}
 </style>
 </head>
