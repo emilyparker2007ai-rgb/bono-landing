@@ -1,0 +1,9 @@
+{
+  "name": "landing-bono",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing de captacion con salida a WhatsApp y metricas propias",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,14 @@
+# Web service de Node que sirve la landing, el redirect a WhatsApp y las metricas.
+# OJO: no cambiar a "runtime: static". Un sitio estatico no puede hacer el 302 a
+# WhatsApp ni contar los clics del lado del servidor: se caen el numero oculto
+# y las metricas.
+services:
+  - type: web
+    name: bono-landing
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: "true"
+    startCommand: node server/server.js
+    healthCheckPath: /health
+    pullRequestPreviewsEnabled: false
